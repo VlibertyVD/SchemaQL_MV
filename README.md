@@ -33,30 +33,30 @@ The compiler architecture is structured in four core phases:
 2. Parser: Analyzes the token stream and constructs the Abstract Syntax Tree (AST).
 3. Semantic Analyzer: Traverses the AST to validate logical constraints, referential integrity, and data types.
 4. Code Generator: Translates the validated AST structure into standard PostgreSQL DDL.
-
+```
 ## Project Structure
-📁 SchemaQL_MV
- ├── 📁 include/        # C++ Header files (.hpp)
- ├── 📁 src/            # Source code implementations (.cpp)
- │    ├── 📁 lexer/     # Lexical analyzer module
- │    ├── 📁 parser/    # Parser and grammar module
- │    ├── 📁 semantic/  # Semantic analyzer module
- │    ├── 📁 codegen/   # Code generator module
- │    └── main.cpp      # Main compiler entry point
- ├── 📁 tests/          # Directory for large-scale test files
- │    └── test.schemaql # Main evaluation file
- ├── CMakeLists.txt     # Build configuration
- └── README.md          # Project documentation
-
+📁 SchemaQL_MV 
+ ├── 📁 include          # C++ Header files (.hpp)
+ ├── 📁 src              # Source code implementations (.cpp)
+ │    ├── 📁 lexer       # Lexical analyzer module
+ │    ├── 📁 parser      # Parser and grammar module
+ │    ├── 📁 semantic    # Semantic analyzer module
+ │    ├── 📁 codegen     # Code generator module
+ │    └── main.cpp       # Main compiler entry point
+ ├── 📁 tests            # Directory for large-scale test files
+ │    └── test.schemaql  # Main evaluation file
+ ├── CMakeLists.txt /    # Build configuration
+ └── README.md           # Project documentation
+```
 ## Dependencies: DeSiGNAR Library
 This project strictly requires the DeSiGNAR library provided by CeSiMo (ULA). 
 To ensure CMake finds the library, the DeSiGNAR folder must be located in the same parent directory as this repository and must be compiled beforehand.
-
+```
 Directory structure expected:
-📁 parent_folder
- ├── 📁 DeSiGNAR (compiled)
+📁 parent_folder 
+ ├── 📁 DeSiGNAR (compiled) 
  └── 📁 SchemaQL_MV 
-
+```
 ## How to Build and Run
 1. Configure the project:
    cmake -S . -B build
