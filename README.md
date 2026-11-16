@@ -20,13 +20,13 @@ The compiler architecture is structured in four core phases:
 4. Code Generator: Translates the validated AST structure into standard PostgreSQL DDL.
 
 ## Dependencies: DeSiGNAR Library
-This project strictly requires the DeSiGNAR library provided by CeSiMo (ULA). 
+This project strictly requires the DeSiGNAR library provided by (ULA). 
 To ensure CMake finds the library, the DeSiGNAR folder must be located in the same parent directory as this repository and must be compiled beforehand.
 
-Directory structure expected:
-📁 parent_folder
- ├── 📁 DeSiGNAR (compiled)
- └── 📁 SchemaQL_MV
+Directory structure expected: \
+📁 parent_folder \
+ ├── 📁 DeSiGNAR (compiled) \
+ └── 📁 SchemaQL_MV 
 
 ## How to Build and Run
 1. Configure the project:
