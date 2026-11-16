@@ -1,0 +1,22 @@
+// SchemaQL Large-Scale Test File
+// This file tests all supported tokens, data types, modifiers, and relationships.
+
+model user
+    id: int, required, unique
+    username: text, required, unique
+    is_active: bool, default
+    account_balance: float
+    registration_date: date
+end_model
+
+model role
+    role_name: text, required
+    users: many2many user
+end_model
+
+model post
+    title: text, required
+    content: text
+    author: many2one user
+    comments: one2many comment
+end_model
