@@ -4,12 +4,13 @@
 SchemaQL is a custom domain-specific language (DSL) designed to simplify relational database modeling. This compiler reads SchemaQL source code and translates it directly into PostgreSQL Data Definition Language (DDL) scripts, handling tables and relationships.
 
 ## Delivery 1: Lexical Analyzer (Lexer)
-The Lexer represents the first phase of the compilation process. Its primary function is to read the raw source code and convert it into a sequence of valid tokens.
+The Lexer represents the first phase of the compilation process. Its primary function is to read the raw source code character by character, group them into meaningful lexemes, and convert them into a sequence of valid tokens. 
 
 **Implementation Details:**
-- **Library:** The implementation relies on the Designar::Lexer tool from the local DeSiGNAR library.
-- **Regex Compatibility:** Due to limitations in the DeSiGNAR regex engine regarding standard character classes, the alphabet and digit structures were explicitly defined using logical OR sequences to accurately match identifiers and literals.
-- **Stream Sanitization:** The Lexer automatically discards whitespace, carriage returns, and line comments, ensuring the parser receives a clean token stream.
+- **Library Integration:** The implementation relies on the `Designar::Lexer` tool from the local DeSiGNAR library, instantiating the lexer and registering specific regular expressions for each language construct.
+- **Token Priority:** Tokens are registered in a strict priority order. Keywords (`model`, `end_model`) and native data types (`int`, `text`, `bool`, `float`, `date`) are added first to prevent reserved words from being misclassified as general identifiers.
+
+- **Token Filtering and Stream Sanitization:** The lexer registers patterns for whitespaces, carriage returns, and line comments (`//`). After the engine generates the initial token array, a filtering loop automatically discards these non-essential tokens. This ensures the subsequent parser receives a clean, strictly syntactic token stream (`Designar::DynArray<Designar::Token>`).
 
 ### Lexer Tokens Supported
 | Token Name | Description | Example / Regex Match |
