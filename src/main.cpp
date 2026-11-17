@@ -7,7 +7,7 @@
 // TODO: Include semantic and codegen headers here when implemented
 
 int main(int argc, char* argv[]) {
-    
+
     // Default test file if no argument is provided
     std::string file_path = "tests/test.schemaql";
     if (argc > 1) {

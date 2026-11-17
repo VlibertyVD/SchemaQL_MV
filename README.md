@@ -65,7 +65,7 @@ Directory structure expected:
 2. Build the compiler:
    cmake --build build
 
-3. Run the program (it defaults to reading tests/test.schemaql):
+3. Run the program (it defaults to reading tests/test.schemaql) You need wait until the test is readed:
    ./build/SchemaQL
 
 4. Run the program with a custom file:
